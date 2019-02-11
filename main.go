@@ -33,6 +33,12 @@ func defaultHandler(w http.ResponseWriter, r *http.Request) {
 				fmt.Fprint(w, "Go web app powered by Docker")
 }
 
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Server", "A Go Web Server")
+	w.WriteHeader(200)
+	w.Write([]byte("OK"))
+}
+
 func treyHandler(res http.ResponseWriter, req *http.Request) {
 	res.Header().Set(
 		"Content-Type",
@@ -54,6 +60,7 @@ func treyHandler(res http.ResponseWriter, req *http.Request) {
 
 func main () {
 				http.HandleFunc("/", defaultHandler)
+				http.HandleFunc("/lb-status", healthHandler)
 				http.HandleFunc("/hello", helloHandler)
 				http.HandleFunc("/trey", treyHandler)
 				err := http.ListenAndServe(":8080", nil)

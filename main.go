@@ -59,10 +59,10 @@ func treyHandler(res http.ResponseWriter, req *http.Request) {
 }
 
 func main () {
-				http.HandleFunc("/", defaultHandler)
+				http.HandleFunc("/", treyHandler)
 				http.HandleFunc("/lb-status", healthHandler)
 				http.HandleFunc("/hello", helloHandler)
-				http.HandleFunc("/trey", treyHandler)
+				http.HandleFunc("/default", defaultHandler)
 				err := http.ListenAndServe(":80", nil)
 				if err != nil {
 								log.Fatal("ListenAndServe: ", err)

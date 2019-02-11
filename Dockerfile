@@ -11,5 +11,5 @@ RUN go install github.com/mtaylor98/golang-docker
 # Run the golang-docker command when the container starts
 ENTRYPOINT /go/bin/golang-docker
 
-# http server listens on port 8080
-EXPOSE 8080
+# http server listens on port 80
+EXPOSE 80

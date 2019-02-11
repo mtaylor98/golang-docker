@@ -63,7 +63,7 @@ func main () {
 				http.HandleFunc("/lb-status", healthHandler)
 				http.HandleFunc("/hello", helloHandler)
 				http.HandleFunc("/trey", treyHandler)
-				err := http.ListenAndServe(":8080", nil)
+				err := http.ListenAndServe(":80", nil)
 				if err != nil {
 								log.Fatal("ListenAndServe: ", err)
 								return
